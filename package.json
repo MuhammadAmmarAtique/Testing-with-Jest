@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Learning how to do testing with jest",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "jest": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Ammar",
   "license": "ISC",
