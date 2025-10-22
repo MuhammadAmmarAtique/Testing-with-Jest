@@ -14,3 +14,9 @@ export function fetchData(callback) {
     callback("water bottle");
   }, 1000);
 }
+
+export function fetchPromise() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Peanut Butter"), 1000);
+  });
+}

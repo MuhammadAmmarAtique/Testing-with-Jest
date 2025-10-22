@@ -1,4 +1,4 @@
-import { Sum, Substract, fetchData } from "./myFile";
+import { Sum, Substract, fetchData, fetchPromise } from "./myFile";
 
 // 1) Unit Test of a Function
 test("should be 5 ", () => {
@@ -48,4 +48,14 @@ test("the data should be water bottle", (done) => {
     }
   }
   fetchData(callback);
+});
+// b)promise
+test("the data should be peanut butter", () => {
+  return expect(fetchPromise()).resolves.toBe("Peanut Butter");
+});
+
+// c)async await
+test("data should be peanut buutter", async () => {
+  const data = await fetchPromise();
+  expect(data).toBe("Peanut Butter");
 });
