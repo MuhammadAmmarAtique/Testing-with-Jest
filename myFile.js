@@ -11,6 +11,6 @@ export function Substract(a, b) {
 
 export function fetchData(callback) {
   setTimeout(() => {
-    callback('water bottle')
+    callback("water bottle");
   }, 1000);
 }
