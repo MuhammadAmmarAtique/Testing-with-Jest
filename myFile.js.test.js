@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals';
+import { jest } from "@jest/globals";
 import { Sum, Substract, fetchData, fetchPromise } from "./myFile";
 
 // 1) Unit Test of a Function
@@ -63,6 +63,23 @@ test("data should be peanut buutter", async () => {
 
 // d)mock function
 test("a basic mock function", () => {
-  const mock = jest.fn(x => x+12); // using jest.fn() we craete mock function
+  const mock = jest.fn((x) => x + 12); // using jest.fn() we craete mock function
   expect(mock(2)).toBe(14);
+});
+
+// e) spying
+test("spying on method inside an object", () => {
+  const myObj = {
+    greet() {
+      return true;
+    },
+  };
+
+  const spy = jest.spyOn(myObj, "greet");
+
+  myObj.greet();
+
+  expect(spy).toHaveBeenCalled(); //check that it was called
+
+  spy.mockRestore(); //remove the spy after test
 });
