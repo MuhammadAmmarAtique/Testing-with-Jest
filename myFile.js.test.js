@@ -1,12 +1,11 @@
-import { Sum } from "./myFile";
-import { Substract } from "./myFile";
+import { Sum, Substract, fetchData } from "./myFile";
 
 // 1) Unit Test of a Function
 test("should be 5 ", () => {
   expect(Sum(3, 2)).toBe(5);
 });
 
-// Matchers
+// 2) Matchers
 // a).toBe()
 test("should be 5", () => {
   expect(30 - 2).toBe(28);
@@ -31,8 +30,22 @@ test("is false", () => {
 });
 
 //  e) toThrow()
-test('should throw error for invalid input', () => {
-  expect(()=>{
-    Substract("12", 2)
-  }).toThrow()
-})
+test("should throw error for invalid input", () => {
+  expect(() => {
+    Substract("12", 2);
+  }).toThrow();
+});
+
+// 3) Testing Asynchronous Code
+// a)callback
+test("the data should be water bottle", (done) => {
+  function callback(data) {
+    try {
+      expect(data).toBe("water bottle");
+      done();
+    } catch (error) {
+      done(error);
+    }
+  }
+  fetchData(callback);
+});
