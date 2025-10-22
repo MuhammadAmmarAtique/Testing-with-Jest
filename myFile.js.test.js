@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import { Sum, Substract, fetchData, fetchPromise } from "./myFile";
 
 // 1) Unit Test of a Function
@@ -58,4 +59,10 @@ test("the data should be peanut butter", () => {
 test("data should be peanut buutter", async () => {
   const data = await fetchPromise();
   expect(data).toBe("Peanut Butter");
+});
+
+// d)mock function
+test("a basic mock function", () => {
+  const mock = jest.fn(x => x+12); // using jest.fn() we craete mock function
+  expect(mock(2)).toBe(14);
 });
